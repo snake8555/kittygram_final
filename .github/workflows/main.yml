@@ -30,15 +30,11 @@ jobs:
         python -m pip install --upgrade pip 
         pip install flake8==6.0.0 flake8-isort==6.0.0
         pip install -r ./backend/requirements.txt 
-    # Этот шаг дополним переменными для доступа к БД
     - name: Test with flake8 and django tests
-      # Добавляем env-переменные для доступа к БД
       env:
         POSTGRES_USER: django_user
         POSTGRES_PASSWORD: django_password
         POSTGRES_DB: django_db
-        # Сервер БД запущен в Docker, но его порт проброшен на хост
-        # Поэтому подключаемся к 127.0.0.1:5432
         DB_HOST: 127.0.0.1
         DB_PORT: 5432
       run: |
@@ -66,10 +62,6 @@ jobs:
         with:
           context: ./backend/
           push: true
-          # В параметре tags задаётся название и тег для образа.
-          # Для каждого пересобранного образа 
-          # устанавливаем тег latest, чтобы потом
-          # на сервере и в docker-compose.yml не указывать версию
           tags: snake85/kitty_backend:latest 
 
   frontend_tests:
@@ -131,7 +123,6 @@ jobs:
         with:
           context: ./gateway/
           push: true
-          # Тут вместо username должен быть ваш логин на Docker Hub
           tags: snake85/kitty_gateway:latest 
 
   deploy:
