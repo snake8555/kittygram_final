@@ -28,6 +28,6 @@ services:
   gateway:
     build: ./gateway/
     volumes:
-      - static:/staticfiles/
+      - static:/static/
     ports:
       - 9000:80 
