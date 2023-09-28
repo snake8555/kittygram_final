@@ -1,4 +1,4 @@
-name: Main Kitty Workflow
+name: Main Kittygram Workflow
 
 on:
   push:
@@ -181,7 +181,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
-          cd kitty
+          cd kittygram
           # Выполняет pull образов с Docker Hub
           sudo docker compose -f docker-compose.production.yml pull
           # Перезапускает все контейнеры в Docker Compose
