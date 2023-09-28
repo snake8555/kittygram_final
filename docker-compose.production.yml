@@ -17,6 +17,8 @@ services:
     volumes:
       - static_volume:/backend_static
       - media:/app/media
+    backends_on:
+      - db
   frontend:
     image: snake85/kittygram_frontend
     env_file: .env
@@ -29,5 +31,7 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static_volume:/static/
+      - static_volume:/staticfiles/
       - media:/media
+    backends_on:
+      - backend
