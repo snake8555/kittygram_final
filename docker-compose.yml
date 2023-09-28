@@ -27,6 +27,6 @@ services:
     build: ./nginx/
     env_file: .env
     volumes:
-      - static:/static
+      - static:/staticfiles/
     ports:
-      - 9000:80
+      - 9000:80 
