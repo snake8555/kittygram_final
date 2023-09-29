@@ -17,6 +17,8 @@ services:
     volumes:
       - static:/backend_static
       - media:/app/media
+  depens_on:
+      - db
 
   frontend:
     env_file: .env
@@ -33,4 +35,5 @@ services:
       - media:/app/media
     ports:
       - 9000:80
-    
+    depens_on:
+      - backend
