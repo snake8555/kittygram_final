@@ -17,7 +17,7 @@ services:
     volumes:
       - static_volume:/backend_static
       - media:/app/media
-    depens_on:
+    depends_on:
       - db
   frontend:
     image: snake85/kittygram_frontend
@@ -33,5 +33,5 @@ services:
     volumes:
       - static_volume:/staticfiles/
       - media:/app/media
-    depens_on:
+    depends_on:
       - backend
