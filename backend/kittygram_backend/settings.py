@@ -12,7 +12,7 @@ SECRET_KEY =  os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG', default=False)
 
-ALLOWED_HOSTS = os.getenv(('ALLOWED_HOSTS').split(), default=' ')
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'yakitty.ddns.net'] # os.getenv('ALLOWED_HOSTS').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
