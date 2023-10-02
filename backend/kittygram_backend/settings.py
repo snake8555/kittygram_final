@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY =  os.getenv('SECRET_KEY', default='None')
 
-DEBUG = os.getenv('DEBUG', default=False)
+DEBUG = True # os.getenv('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'yakitty.ddns.net'] # os.getenv('ALLOWED_HOSTS').split()
 
