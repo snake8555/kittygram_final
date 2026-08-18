@@ -1,26 +1,51 @@
-#  Как работать с репозиторием финального задания
+# Kittygram
 
-## Что нужно сделать
+Kittygram is a web application where users can create profiles for their cats, upload photos, and share information about their pets.
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
+The project includes a Django REST API, React frontend, Docker containerization, Nginx, and automated CI/CD with GitHub Actions.
 
-## Как проверить работу с помощью автотестов
+## Tech Stack
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+- Python
+- Django
+- Django REST Framework
+- React
+- Docker
+- Docker Compose
+- Nginx
+- GitHub Actions
+- pytest
+
+## Features
+
+- User authentication
+- Create and manage cat profiles
+- Upload cat photos
+- REST API
+- Containerized deployment
+- Automated testing and deployment with GitHub Actions
+
+## Running the Project
+
+Clone the repository and create a `.env` file based on `.env.example`.
+
+```bash
+docker compose up -d --build
 ```
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+For production:
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+```bash
+docker compose -f docker-compose.production.yml up -d
+```
 
-## Чек-лист для проверки перед отправкой задания
+## Testing
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+```bash
+pip install -r backend/requirements.txt
+pytest
+```
+
+## Author
+
+Vladimir Zhurov
